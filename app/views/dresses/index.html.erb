@@ -1,3 +1,21 @@
+<div class="cards">
+  <%= @dresses.each do |dress|%>
+    <div class="card-trip">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+    <div class="card-trip-infos">
+      <div>
+        <h2>Title here</h2>
+        <p>Short description here!</p>
+      </div>
+      <h2 class="card-trip-pricing">£99.99</h2>
+      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+      </div>
+    </div>
+  <%end%>
+</div>
+
+
+
 
 <div class="card-trip">
   <img src="https://img01.ztat.net/article/spp-media-p1/3f3d3827eaed3b4c86cbe0db62074c93/074ecf15bd764e39a8b4cb716db376d4.jpg?imwidth=1800&filter=packshot" />
@@ -8,7 +26,18 @@
       <p><%= dress.price %></p>
       <% end %>
     </div>
+  </div>
+</div>
 
 
+<div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="card-trip-infos">
+    <div>
+      <h2>Title here</h2>
+      <p>Short description here!</p>
+    </div>
+    <h2 class="card-trip-pricing">£99.99</h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
   </div>
 </div>
