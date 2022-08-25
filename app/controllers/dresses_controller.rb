@@ -1,4 +1,6 @@
 class DressesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: :show
   def index
     @dresses = Dress.all
   end
