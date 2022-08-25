@@ -1,0 +1,20 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h3>Add a dress</h3>
+        <%= simple_form_for [@dress] do |f| %>
+        <tr><%= f.input :category, :collection => ['Dirndl','Lederhose'],  label: "Category", selected: 1 %>
+          <%= f.input :size, :collection => ['S','M','L','XL'],  label: "Size", selected: 1 %>
+          <%= f.input :price, placeholder: 'How much is your dress' %>
+          <%= f.input :description, placeholder: 'Enter a description of your lovely dress' %>
+          <%= f.input :photo, as: :file %>
+          <td><%= f.submit class: 'btn btn-flat' %></td>
+          <% end %>
+          </tr>
+
+
+      </div>
+    </div>
+  </div>
+</div>
