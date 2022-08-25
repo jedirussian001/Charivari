@@ -1,14 +1,16 @@
-
-<div class="card-trip">
-  <img src="https://img01.ztat.net/article/spp-media-p1/3f3d3827eaed3b4c86cbe0db62074c93/074ecf15bd764e39a8b4cb716db376d4.jpg?imwidth=1800&filter=packshot" />
-  <div class="card-trip-infos">
-    <div>
-      <% @dresses.each do |dress| %>
-      <h2><%= link_to "#{dress.category}", dress_path(dress) %></h2>
-      <p><%= dress.price %></p>
-      <% end %>
-    </div>
-
-
-  </div>
+<div class ="container pt-3" >
+<div class="cards">
+    <% @dresses.each do |dress|%>
+      <div class="cardos">
+        <%= image_tag(dress.img_url,:width => "100%")%>
+        <div class="card-content">
+          <div class="card-text">
+            <h3 class="choose-button"><%= link_to "#{dress.category}", dress_path(dress), class: "no-decoration" %></h3>
+            <p class="price">price: <%= dress.price %></p>
+            <p class="price">size: <%= dress.size %></p>
+          </div>
+        </div>
+        <p><%= link_to "Book Now", dress_path(dress), class: "basic-link" %></p>
+      </div>
+    <%end%>
 </div>
