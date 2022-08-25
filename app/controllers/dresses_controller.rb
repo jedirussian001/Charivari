@@ -15,6 +15,7 @@ class DressesController < ApplicationController
 
   def create
     @dress = Dress.new(dress_params)
+    @dress.user = current_user
     @dress.save
     # No need for app/views/restaurants/create.html.erb
     redirect_to dress_path(@dress)
@@ -41,6 +42,6 @@ class DressesController < ApplicationController
   private
 
   def dress_params
-    params.require(:dress).permit(:category, :size, :description, :price, :location)
+    params.require(:dress).permit(:category, :size, :description, :price, :location, :photo)
   end
 end
