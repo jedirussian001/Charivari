@@ -8,7 +8,7 @@
 
 User.destroy_all
 Dress.destroy_all
-
+Booking.destroy_all
 
 users=User.create([{email:"1@email.com", password: "123456"}, {email:"2@email.com", password: "123456"}, {email:"3@email.com", password: "123456"}, {email:"4@email.com", password: "123456"}, {email:"5@email.com", password: "123456"}])
 
@@ -113,3 +113,7 @@ dress20.photo.attach(io: file20, filename: "20", content_type: "image/png")
 dress20.save
 
 puts "New Dress"
+booking1 = Booking.create(start_date: "Monday", end_date: "Friday", status: "pending", user_id: dress12.user_id, dress_id: dress12.id )
+booking2 = Booking.create(start_date: "Wednesday", end_date: "Sunday", status: "accepted", user_id: dress20.user_id, dress_id: dress20.id )
+booking3 = Booking.create(start_date: "Friday", end_date: "Monday", status: "declined", user_id: dress3.user_id, dress_id: dress3.id )
+puts "Book dress"
