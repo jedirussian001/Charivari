@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :set_dress, only: [:create, :edit, :destroy, :update]
   def index
     @bookings = Booking.all
   end
@@ -19,10 +20,11 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(_params)
+    @booking = Booking.new(booking_params)
     @booking.dress = @dress
+    @booking.user = current_user
     @booking.save
-    redirect_to dress_path(@dress)
+    redirect_to bookings_path
   end
 
   def new

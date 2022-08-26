@@ -1,6 +1,10 @@
 <div id="grad1">
 <h1><%= @dress.category %></h1>
-<%= cl_image_tag @dress.photo.key, height: 300, width: 400, crop: :fill %>
+<% if @dress.photo.attached? %>
+    <%= cl_image_tag @dress.photo.key, height: 300, width: 200, crop: :fill %>
+    <% else %>
+    <%= image_tag "Dirndl_1.webp", height: 300, width: 200, crop: :fill%>
+    <% end %>
 <p><%= @dress.price%></p>
 <p><%= @dress.size %></p>
 <p><%= @dress.location %></p>
@@ -9,4 +13,3 @@
 <p><%= @dress.description %></p>
 <%= link_to "Back to list", dresses_path %>
 <%= link_to "Delete", dress_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-
