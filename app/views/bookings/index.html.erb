@@ -1,1 +1,17 @@
-<h1>Hi ChuChu you are cool!</h1>
+
+<div class="cards">
+    <% @bookings.each do |booking|%>
+      <div class="cardos">
+       <%= cl_image_tag booking.dress.photo.key, height: 300, width: 300, crop: :fill %>
+        <div class="card-content">
+          <div class="card-text">
+          <h2><%= link_to "Status", booking_path(booking) %></h2>
+            <p class="From">Start date: <%= booking.start_date %></p>
+            <p class="price">End date: <%= booking.end_date %></p>
+          </div>
+        </div>
+      </div>
+    <%end%>
+</div>
+
+<%= link_to "Go back to dresses", dresses_path, :class => "btn btn-flat"%>
