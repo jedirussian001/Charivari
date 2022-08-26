@@ -2,7 +2,11 @@
 <div class="cards">
     <% @dresses.each do |dress|%>
       <div class="cardos">
-       <%= cl_image_tag dress.photo.key, height: 300, width: 300, crop: :fill %>
+      <% if dress.photo.attached? %>
+       <%= cl_image_tag dress.photo.key, height: 300, width: 200, crop: :fill %>
+       <% else %>
+       <%= image_tag "Dirndl_1.webp", height: 300, width: 200, crop: :fill%>
+       <% end %>
         <div class="card-content">
           <div class="card-text">
             <h3 class="choose-button"><%= link_to "#{dress.category}", dress_path(dress), class: "no-decoration" %></h3>
@@ -10,7 +14,7 @@
             <p class="price">size: <%= dress.size %></p>
           </div>
         </div>
-        <p><%= link_to "Book Now", dress_path(dress), class: "basic-link" %></p>
+        <p><%= link_to "Book Now", new_dress_booking_path(dress), class: "basic-link" %></p>
       </div>
     <%end%>
 </div>

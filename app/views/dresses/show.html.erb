@@ -1,46 +1,58 @@
-<div id="grad1">
-<h1><%= @dress.category %></h1>
-<%= cl_image_tag @dress.photo.key, height: 300, width: 400, crop: :fill %>
-<p><%= @dress.price%></p>
-<p><%= @dress.size %></p>
-<p><%= @dress.location %></p>
-
-<h2>Description</h2>
-<p><%= @dress.description %></p>
-<%= link_to "Back to list", dresses_path %>
-<%= link_to "Delete", dress_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-
-<div class="circletop">
-
-    </div>
-    <div class="product-card">
-      <h1><%= @dress.category %></h1>
-      <p><%= @dress.description %></p>
-      <div class="product-pic"></div>
-      <div class="product-colors">
-        <span class="blue active" data-color="#7ed6df" data-pic="url(1.png)"></span>
-        <span class="green" data-color="#badc58" data-pic="url(2.png)"></span>
-        <span class="yellow" data-color="#f9ca24" data-pic="url(3.png)"></span>
-        <span class="rose" data-color="#ff7979" data-pic="url(4.png)"></span>
+<html>
+<body>
+  <main>
+    <div class="card">
+      <div class="card__title">
+        <div class="icon">
+        <%= link_to  dresses_path do %>
+         <i class="fa fa-arrow-left"></i>
+         <% end %>
+        </div>
+        <h3>New to Charivari</h3>
       </div>
-      <div class="product-info">
-        <div class="product-price"><%= @dress.price%></div>
-        <div class="product-price"><%= @dress.size %></div>
-        <div class="product-price"><%= @dress.location %></div>
-        <a href="#" class="product-button">Add to Cart</a>
+      <div class="card__body">
+        <div class="half">
+          <div class="featured_text">
+            <h1><%= @dress.category %></h1>
+            <p class="sub"> Size: <%= @dress.size %></p>
+            <p class="price"><%= @dress.price %> €</p>
+          </div>
+          <div class="image">
+            <% if @dress.photo.attached? %>
+    <%= cl_image_tag @dress.photo.key, height: 300, width: 200, crop: :fill %>
+    <% else %>
+    <%= image_tag "Dirndl_1.webp", height: 300, width: 200, crop: :fill%>
+    <% end %>
+          </div>
+        </div>
+        <div class="half">
+          <div class="description">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero voluptatem nam pariatur voluptate perferendis, asperiores aspernatur! Porro similique consequatur, nobis soluta minima, quasi laboriosam hic cupiditate perferendis esse numquam magni.</p>
+          </div>
+          <span class="stock"><i class="fa fa-pen"></i> In stock</span>
+          <div class="reviews">
+            <ul class="stars">
+              <li><i class="fa fa-star"></i></li>
+              <li><i class="fa fa-star"></i></li>
+              <li><i class="fa fa-star"></i></li>
+              <li><i class="fa fa-star"></i></li>
+              <li><i class="fa fa-star-o"></i></li>
+            </ul>
+            <span>(User has 64 reviews)</span>
+          </div>
+        </div>
+      </div>
+      <div class="card__footer">
+        <div class="recommend">
+          <p>Sold by</p>
+          <h3>Andrew Palmer</h3>
+        </div>
+        <div class="action">
+            <button type="button">Add to cart</button>
+        </div>
       </div>
     </div>
-    <div class="circlebottom">
+  </main>
+</body>
 
-    </div>
-
-    <script>
-      $(".product-colors span").click(function(){
-        $(".product-colors span").removeClass("active");
-        $(this).addClass("active");
-        $("body").css("background",$(this).attr("data-color"));
-        $(".product-price").css("color",$(this).attr("data-color"));
-        $(".product-button").css("color",$(this).attr("data-color"));
-        $(".product-pic").css("background-image",$(this).attr("data-pic"));
-      });
-    </script>
+</html>

@@ -1,1 +1,8 @@
-<h1>this is booking show page</h1>
+<div class="card-product">
+  <div class="card-product-infos">
+    <%= cl_image_tag @booking.dress.photo.key, height: 300, width: 300, crop: :fill %>
+    <h2>Your Booking Status: <strong>pending </strong> </h2>
+  </div>
+</div>
+<%= link_to "Go back your bookings", bookings_path, :class => "btn btn-flat"%>
+<%= link_to "Go back to dresses", dresses_path, :class => "btn btn-flat"%>

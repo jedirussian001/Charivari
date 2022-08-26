@@ -1,1 +1,15 @@
-<h1>this is for creating a new booking request</h1>
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h3>Book it now</h3>
+        <%= simple_form_for [@dress, @booking] do |f| %>
+        <tr><%= f.input :start_date, :collection => ['Monday','Tuesday','Wednesday','Thursday','Friyay','Saturday','Sunday'],  label: "When to start", selected: 1 %>
+        <%= f.input :start_date, :collection => ['Monday','Tuesday','Wednesday','Thursday','Friyay','Saturday','Sunday'],  label: "When to end", selected: 1 %>
+        <%= f.button :submit, "Confirm" %>
+          <% end %>
+          </tr>
+      </div>
+    </div>
+  </div>
+</div>
